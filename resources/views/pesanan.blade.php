@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Manajemen Pengguna</h1>
+                    <h1 class="m-0">Manajemen Pesanan</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Manajemen Pengguna</li>
+                        <li class="breadcrumb-item active">Manajemen Pesanan</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -28,7 +28,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Tabel Pengguna</h3>
+                            <h3 class="card-title">Tabel Pesanan</h3>
                         </div>
 
                         <div class="card-body">
@@ -77,7 +77,7 @@
                                                     <td>John Doe</td>
                                                     <td>26/05/2022</td>
                                                     <td>
-                                                      <button class="btn btn-primary">Edit</button>
+                                                    <button class="btn btn-primary"  onclick="window.location.href='/manajemen/detail-pesanan'">Edit</button>
                                                       <button class="btn btn-secondary">Delete</button>
                                                     </td>
                                                     <!-- <td>A</td> -->

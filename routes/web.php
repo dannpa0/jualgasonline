@@ -29,3 +29,5 @@ Route::get('/manajemen/pengguna', [App\Http\Controllers\PenggunaController::clas
 Route::get('/manajemen/pelanggan', [App\Http\Controllers\PelangganController::class, 'index']);
 Route::get('/manajemen/produk', [App\Http\Controllers\ProdukController::class, 'index']);
 Route::get('/manajemen/pesanan', [App\Http\Controllers\PesananController::class, 'index']);
+Route::get('/manajemen/detail-pesanan', [App\Http\Controllers\DetailPesananController::class, 'index']);
+Route::get('/manajemen/detail-pelanggan', [App\Http\Controllers\DetailPelangganController::class, 'index']);

@@ -77,7 +77,7 @@
                                                     <td>John Doe</td>
                                                     <td>26/05/2022</td>
                                                     <td>
-                                                      <button class="btn btn-primary">Edit</button>
+                                                    <button class="btn btn-primary"  onclick="window.location.href='/manajemen/detail-pelanggan'">Edit</button>
                                                       <button class="btn btn-secondary">Delete</button>
                                                     </td>
                                                     <!-- <td>A</td> -->
