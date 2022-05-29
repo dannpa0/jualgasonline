@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Starter</title>
+  <title>Mitra Madina | Administrator</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -49,6 +49,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <img src="{{ asset('img/mitramadina/mmlogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle " style="opacity: .8">
       <span class="brand-text font-weight-light">Mitra Madina Admin</span>
     </a>
+    <div class="position-absolute fixed-bottom p-3">
+      <button class="btn btn-danger w-100">Keluar</button>
+    </div>
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -61,7 +64,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                with font-awesome or any other icon font library -->
           <li class="nav-header">Navigasi</li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('manajemen/pengguna') }}" class="nav-link">
               <!-- <i class="nav-icon fas fa-th"></i> -->
               <i class="nav-icon fas fa-users"></i>
               <p>
@@ -71,7 +74,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('manajemen/pelanggan') }}" class="nav-link">
               <i class="nav-icon fas fa-address-card"></i>
               <p>
                 Pelanggan
@@ -80,7 +83,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('manajemen/produk') }}" class="nav-link">
               <i class="nav-icon fas fa-box"></i>
               <p>
                 Produk
@@ -89,7 +92,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('manajemen/pesanan') }}" class="nav-link">
               <!-- <i class="nav-icon fas fa-th"></i> -->
               <i class="nav-icon fas fa-clipboard-list"></i>
               <p>

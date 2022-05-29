@@ -24,3 +24,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/admin-lte', function() {
     return view('admin-lte');
 });
+
+Route::get('/manajemen/pengguna', [App\Http\Controllers\PenggunaController::class, 'index']);
+Route::get('/manajemen/pelanggan', [App\Http\Controllers\PelangganController::class, 'index']);
+Route::get('/manajemen/produk', [App\Http\Controllers\ProdukController::class, 'index']);
+Route::get('/manajemen/pesanan', [App\Http\Controllers\PesananController::class, 'index']);
