@@ -27,8 +27,13 @@
 
                 <div class="col-lg-12">
                     <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Tabel Pesanan</h3>
+                        <div class="card-header d-flex justify-content-between">
+                            <div class="d-flex align-items-center flex-grow-1">
+                                <h3 class="card-title">Tabel Pesanan</h3>
+                            </div>
+                            <div class="">
+                                <button type="button" class="btn btn-primary px-3"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            </div>
                         </div>
 
                         <div class="card-body">
@@ -71,13 +76,18 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @if(count($listPesanan) < 1)
+                                                    <tr >
+                                                        <td class="text-center" colspan="6"> Tidak ada data </td>
+                                                    </tr>
+                                                @endif
                                                 <tr class="odd">
                                                     <td class="dtr-control sorting_1" tabindex="0">1</td>
                                                     <td>22022</td>
                                                     <td>John Doe</td>
                                                     <td>26/05/2022</td>
                                                     <td>
-                                                    <button class="btn btn-primary"  onclick="window.location.href='/manajemen/detail-pesanan'">Edit</button>
+                                                      <button class="btn btn-primary"  onclick="window.location.href='manajemen/detail-pesanan'">Edit</button>
                                                       <button class="btn btn-secondary">Delete</button>
                                                     </td>
                                                     <!-- <td>A</td> -->
@@ -97,7 +107,7 @@
                                     </div>
                                 </div>
                                 <!-- table footer --> 
-                                <div class="row">
+                                <!-- <div class="row">
                                     <div class="col-sm-12 col-md-5">
                                         <div class="dataTables_info" id="example2_info" role="status"
                                             aria-live="polite">Showing 1 to 10 of 57 entries</div>
@@ -132,7 +142,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>

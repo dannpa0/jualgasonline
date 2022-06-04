@@ -16,6 +16,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Theme style -->
   <!-- <link rel="stylesheet" href="css/adminlte.min.css"> -->
   <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
+  
+  <!-- Scripts -->
+  <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -110,6 +113,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+    <!-- Toast -->
+    @if( @isset($toastmsg))
+    <div style="position: absolute; top: 16px; right: 16px; z-index: 1500">
+        <div class="toast bg-success fade show" role="alert" aria-live="assertive" aria-atomic="true" id="t-success">
+            <div class="toast-header"><strong class="mr-auto">Notifikasi</strong>
+                <button data-dismiss="toast" onclick="$('#t-success').toast('hide')" type="button" class="ml-2 mb-1 close" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="toast-body">{{ $toastmsg }}</div>
+        </div>
+    </div>
+    @endif
     @yield('content-admin')
     <!-- /.content -->
   </div>
@@ -124,6 +138,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
   </aside>
   <!-- /.control-sidebar -->
+
+  
 
   <!-- Main Footer -->
   <!-- <footer class="main-footer"> -->
@@ -146,5 +162,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- AdminLTE App -->
 <!-- <script src="js/adminlte.min.js"></script> -->
 <script src="{{ asset('js/adminlte.min.js') }}"></script>
+<!-- <script>
+    $(document).on("click", ".browse", function() {
+      console.log('asdflaksdjf')
+      var file = $(this).parents().find(".file");
+      file.trigger("click");
+    });
+    $('input[type="file"]').change(function(e) {
+      var fileName = e.target.files[0].name;
+      $("#file").val(fileName);
+
+      var reader = new FileReader();
+      reader.onload = function(e) {
+          // get loaded data and render thumbnail.
+          document.getElementById("preview").src = e.target.result;
+      };
+      // read the image file as a data URL.
+      reader.readAsDataURL(this.files[0]);
+    });
+</script> -->
 </body>
 </html>

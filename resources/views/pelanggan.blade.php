@@ -32,6 +32,7 @@
                         </div>
 
                         <div class="card-body">
+                            <!-- {{ $listPelanggan }} -->
                             <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-6"></div>
@@ -44,11 +45,11 @@
                                             aria-describedby="example2_info">
                                             <thead>
                                                 <tr role="row">
-                                                    <th class="sorting sorting_asc" tabindex="0"
+                                                    <!-- <th class="sorting sorting_asc" tabindex="0"
                                                         aria-controls="example2" rowspan="1" colspan="1"
                                                         aria-sort="ascending"
                                                         aria-label="Rendering engine: activate to sort column descending">
-                                                        No</th>
+                                                        No</th> -->
                                                     <!-- <th class="sorting" tabindex="0" aria-controls="example2"
                                                         rowspan="1" colspan="1"
                                                         aria-label="Browser: activate to sort column ascending">Browser
@@ -63,6 +64,10 @@
                                                         Nama Pelanggan</th>
                                                     <th class="sorting" tabindex="0" aria-controls="example2"
                                                         rowspan="1" colspan="1"
+                                                        aria-label="Engine version: activate to sort column ascending">
+                                                        No Telepon</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example2"
+                                                        rowspan="1" colspan="1"
                                                         aria-label="CSS grade: activate to sort column ascending">
                                                         Tanggal Pembuatan Pelanggan</th>
                                                     <th>
@@ -71,17 +76,20 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach ($listPelanggan as $pelanggan)
                                                 <tr class="odd">
-                                                    <td class="dtr-control sorting_1" tabindex="0">1</td>
-                                                    <td>22022</td>
-                                                    <td>John Doe</td>
-                                                    <td>26/05/2022</td>
+                                                    <!-- <td class="dtr-control sorting_1" tabindex="0">1</td> -->
+                                                    <td>{{ $pelanggan->id }}</td>
+                                                    <td>{{ $pelanggan->nama }}</td>
+                                                    <td>{{ $pelanggan->no_hp }}</td>
+                                                    <td>{{ $pelanggan->created_at}}</td>
                                                     <td>
-                                                    <button class="btn btn-primary"  onclick="window.location.href='/manajemen/detail-pelanggan'">Edit</button>
+                                                    <button class="btn btn-primary"  onclick="window.location.href='/manajemen/pelanggan/{{ $pelanggan->id }}'">Edit</button>
                                                       <button class="btn btn-secondary">Delete</button>
                                                     </td>
                                                     <!-- <td>A</td> -->
                                                 </tr>
+                                                @endforeach
                                                 
                                             </tbody>
                                             <!-- <tfoot>
@@ -97,7 +105,7 @@
                                     </div>
                                 </div>
                                 <!-- table footer --> 
-                                <div class="row">
+                                <!-- <div class="row">
                                     <div class="col-sm-12 col-md-5">
                                         <div class="dataTables_info" id="example2_info" role="status"
                                             aria-live="polite">Showing 1 to 10 of 57 entries</div>
@@ -132,7 +140,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>

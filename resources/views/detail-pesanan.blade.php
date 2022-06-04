@@ -28,29 +28,46 @@
                 <div class="col-lg-6">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Detail Pesanan</h3>
+                            <h3 class="card-title">Detail Pesanan #{{$pesanan['id_pesanan']}}</h3>
                         </div>
 
                         <div class="card-body">
                             <div id="example2_wrapper" class="dataTables_wrapper">
                                 <div class="row">
-                                    <div class="col-sm-12">
+                                    <!-- <div class="col-sm-12">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Id pesanan</label>
                                             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
                                             
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Nomor pesanan </label>
+                                            <label for="exampleInputEmail1">Nama Produk</label>
                                             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                            
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Nama pelanggan</label>
+                                            <label for="exampleInputEmail1">Nama Pelanggan</label>
+                                             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Alamat Lengkap</label>
+                                             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Jumlah Barang</label>
+                                             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Total Harga</label>
                                              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                                         </div>
                                     </div>
