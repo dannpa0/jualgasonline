@@ -49,11 +49,6 @@
                                             aria-describedby="example2_info">
                                             <thead>
                                                 <tr role="row">
-                                                    <th class="sorting sorting_asc" tabindex="0"
-                                                        aria-controls="example2" rowspan="1" colspan="1"
-                                                        aria-sort="ascending"
-                                                        aria-label="Rendering engine: activate to sort column descending">
-                                                        No</th>
                                                     <!-- <th class="sorting" tabindex="0" aria-controls="example2"
                                                         rowspan="1" colspan="1"
                                                         aria-label="Browser: activate to sort column ascending">Browser
@@ -70,8 +65,11 @@
                                                         rowspan="1" colspan="1"
                                                         aria-label="CSS grade: activate to sort column ascending">
                                                         Tanggal Pesan</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example2"
+                                                        rowspan="1" colspan="1"
+                                                        aria-label="CSS grade: activate to sort column ascending">
+                                                        Status Pesanan</th>
                                                     <th>
-                                                      
                                                     </th>
                                                 </tr>
                                             </thead>
@@ -81,17 +79,62 @@
                                                         <td class="text-center" colspan="6"> Tidak ada data </td>
                                                     </tr>
                                                 @endif
+                                                @foreach($listPesanan as $pesanan)
                                                 <tr class="odd">
-                                                    <td class="dtr-control sorting_1" tabindex="0">1</td>
-                                                    <td>22022</td>
-                                                    <td>John Doe</td>
-                                                    <td>26/05/2022</td>
+                                                    <td style="vertical-align: middle">{{ $pesanan->id }}</td>
+                                                    <td style="vertical-align: middle">{{ $pesanan->pelanggan->nama}}</td>
+                                                    <td style="vertical-align: middle">{{ $pesanan->created_at }}</td>
+                                                    <!-- <td>{{ $pesanan->status}}</td> -->
                                                     <td>
-                                                      <button class="btn btn-primary"  onclick="window.location.href='manajemen/detail-pesanan'">Edit</button>
+                                                        <div class="dropdown">
+                                                            <button class="btn btn-secondary dropdown-toggle" 
+                                                                style="color: black;background-color: transparent;border: 0px;"
+                                                                type="button" 
+                                                                id="dropdownMenuButton" 
+                                                                data-toggle="dropdown" 
+                                                                aria-haspopup="true" 
+                                                                aria-expanded="false">
+                                                                {{ $pesanan->status}}
+                                                            </button>
+                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                                <button class="dropdown-item @if($pesanan->status == 'ON_PROCESS') active @endif" 
+                                                                    data-msg="Update status pesanan {{ $pesanan->id}} menjadi ON_PROCESS, lanjutkan ?"
+                                                                    data-link="/manajemen/pesanan/{{$pesanan->id}}/ON_PROCESS"
+                                                                    data-toggle="modal"
+                                                                    data-target="#confirmationModal">
+                                                                    ON_PROCESS
+                                                                </button>
+                                                                <button class="dropdown-item @if($pesanan->status == 'ON_DELIVERY') active @endif" 
+                                                                    data-msg="Update status pesanan {{ $pesanan->id}} menjadi ON_DELIVERY, lanjutkan ?"
+                                                                    data-link="/manajemen/pesanan/{{$pesanan->id}}/ON_DELIVERY"
+                                                                    data-toggle="modal"
+                                                                    data-target="#confirmationModal">
+                                                                    ON_DELIVERY
+                                                                </button>
+                                                                <button class="dropdown-item @if($pesanan->status == 'CANCELLED') active @endif" 
+                                                                    data-msg="Update status pesanan {{ $pesanan->id}} menjadi CANCELLED, lanjutkan ?"
+                                                                    data-link="/manajemen/pesanan/{{$pesanan->id}}/CANCELLED"
+                                                                    data-toggle="modal"
+                                                                    data-target="#confirmationModal">
+                                                                    CANCELLED
+                                                                </button>
+                                                                <button class="dropdown-item @if($pesanan->status == 'DONE') active @endif" 
+                                                                    data-link="/manajemen/pesanan/{{$pesanan->id}}/DONE"
+                                                                    data-toggle="modal"
+                                                                    data-msg="Update status pesanan {{ $pesanan->id}} menjadi DONE, lanjutkan ?"
+                                                                    data-target="#confirmationModal">
+                                                                    DONE
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
                                                       <button class="btn btn-secondary">Delete</button>
                                                     </td>
                                                     <!-- <td>A</td> -->
                                                 </tr>
+
+                                                @endforeach
                                                 
                                             </tbody>
                                             <!-- <tfoot>

@@ -1,43 +1,14 @@
-@extends('layouts.admin-lte')
-
-@section('content-admin')
-<div>
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Manajemen Produk</h1>
-                </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Manajemen Produk</li>
-                    </ol>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-header d-flex justify-content-between">
-                            <div class="d-flex align-items-center flex-grow-1">
-                                <h3 class="card-title">Tabel Produk</h3>
-                            </div>
-                            <div class="">
-                                <button type="button" class="btn btn-primary px-3" onclick="window.location.href='/manajemen/produk/baru'"><i class="fa fa-plus" aria-hidden="true"></i></button>
-                            </div>
-                        </div>
-
-                        <div class="card-body">
-                            <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+@extends('layouts.app')
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    Riwayat Pemesanan
+                </div>
+                <div class="card-body">
+                <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-6"></div>
                                     <div class="col-sm-12 col-md-6"></div>
@@ -61,46 +32,41 @@
                                                     <th class="sorting" tabindex="0" aria-controls="example2"
                                                         rowspan="1" colspan="1"
                                                         aria-label="Platform(s): activate to sort column ascending">
-                                                        ID Produk</th>
+                                                        No Pesanan</th>
                                                     <th class="sorting" tabindex="0" aria-controls="example2"
                                                         rowspan="1" colspan="1"
                                                         aria-label="Engine version: activate to sort column ascending">
-                                                        Nama Produk</th>
+                                                        Tanggan Pesan</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example2"
+                                                        rowspan="1" colspan="1"
+                                                        aria-label="Engine version: activate to sort column ascending">
+                                                        Status</th>
                                                     <th class="sorting" tabindex="0" aria-controls="example2"
                                                         rowspan="1" colspan="1"
                                                         aria-label="CSS grade: activate to sort column ascending">
-                                                        Harga</th>
-                                                    
+                                                        Produk yang dipesan</th>
                                                     <th class="sorting" tabindex="0" aria-controls="example2"
                                                         rowspan="1" colspan="1"
                                                         aria-label="CSS grade: activate to sort column ascending">
-                                                        Stok Produk</th>
-                                                    <th>
-                                                      
-                                                    </th>
+                                                        Jumlah Produk</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example2"
+                                                        rowspan="1" colspan="1"
+                                                        aria-label="CSS grade: activate to sort column ascending">
+                                                        Total Harga Pesanan</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @if(count($listProduk) < 1)
-                                                    <tr >
-                                                        <td class="text-center" colspan="6"> Tidak ada data </td>
-                                                    </tr>
-                                                @endif
-                                                @foreach($listProduk as $produk)
+                                                @foreach ($listPesanan as $pesanan)
                                                 <tr class="odd">
                                                     <!-- <td class="dtr-control sorting_1" tabindex="0">1</td> -->
-                                                    <td>{{ $produk->no_produk}}</td>
-                                                    <td>{{ $produk->nama}}</td>
-                                                    <td>{{ $produk->harga}}</td>
-                                                    <td>{{ $produk->kuantitas}}</td>
-                                                    <td>
-                                                      <button class="btn btn-primary" onclick="window.location.href='/manajemen/produk/{{ $produk->id}}/edit'" >Edit</button>
-                                                      <button class="btn btn-secondary" 
-                                                        data-toggle="modal"
-                                                        data-target="#confirmationModal" 
-                                                        data-msg="Produk {{ $produk->nama }} akan di hapus, lanjutkan ?"
-                                                        data-link="/manajemen/produk/{{ $produk->id}}/hapus">Delete</button>
-                                                    </td>
+                                                    <td>{{ $pesanan->id }}</td>
+                                                    <!-- <td>{{ $pesanan->nama }}</td> -->
+                                                    <td>{{ $pesanan->created_at }}</td>
+                                                    <td>{{ $pesanan->status}}</td>
+                                                    <td>{{ $pesanan->produk['nama']}}</td>
+                                                    <td>{{ $pesanan->jumlah_produk}}</td>
+                                                    <td class="text-right">@currency($pesanan->total_harga)</td>
+                                                    <!-- <td>A</td> -->
                                                 </tr>
                                                 @endforeach
                                                 
@@ -155,14 +121,9 @@
                                     </div>
                                 </div> -->
                             </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
+        </div>
     </div>
-    <!-- /.content -->
 </div>
 @endsection

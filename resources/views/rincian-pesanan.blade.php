@@ -53,13 +53,16 @@
                                         @include('layouts.rincian-field', ['title'=>'Jumlah Pembelian', 'value'=>$rincianPesanan->kuantitas])
                                     </div>
                                     <div class="row">
+                                        @include('layouts.rincian-field', ['title'=>'Ongkos kirim', 'value'=>$rincianPesanan->is_cod?3000:0, 'idr'=>TRUE])
+                                    </div>
+                                    <div class="row">
                                         @include('layouts.rincian-field', ['title'=>'Total Harga', 'value'=>$totalHarga, 'idr'=>TRUE])
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 mt-5">
                                 <div class="container d-flex">
-                                    <button type="button" class="btn btn-primary w-100">Pesan Sekarang</button>
+                                    <button type="button" class="btn btn-primary w-100" onclick="window.location.href='/form-pesanan/{{$rincianProduk->id}}/done'">Pesan Sekarang</button>
                                 </div>
                                 
                             </div>

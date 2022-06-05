@@ -43,12 +43,13 @@ Route::get('/manajemen/produk', [App\Http\Controllers\ProdukController::class, '
 Route::get('/manajemen/produk/{id}/edit', [App\Http\Controllers\ProdukController::class, 'show']);
 Route::post('/manajemen/produk/{id}/edit', [App\Http\Controllers\ProdukController::class, 'storeEdit']);
 Route::get('/manajemen/produk/baru', [App\Http\Controllers\ProdukController::class, 'create']);
-Route::post('/manajemen/produk/baru', [App\Http\Controllers\ProdukController::class, 'store']);
+Route::get('/manajemen/produk/{idProduk}/hapus', [App\Http\Controllers\ProdukController::class, 'deleteProduk']);
 
 
 // Route untuk pesanan
 Route::get('/manajemen/pesanan', [App\Http\Controllers\PesananController::class, 'index']);
 Route::get('/manajemen/pesanan/{id}', [App\Http\Controllers\PesananController::class, 'show']);
+Route::get('/manajemen/pesanan/{id}/{status}', [App\Http\Controllers\PesananController::class, 'updateStatus']);
 // Route::get('/manajemen/detail-pesanan', [App\Http\Controllers\DetailPesananController::class, 'index']);
 // Route::get('/manajemen/detail-pelanggan', [App\Http\Controllers\DetailPelangganController::class, 'index']);
 
@@ -56,6 +57,7 @@ Route::get('/manajemen/pesanan/{id}', [App\Http\Controllers\PesananController::c
 // Route untuk order pemesanan
 Route::get('/pemesanan', [App\Http\Controllers\PesananController::class, 'orderPage']);
 Route::post('/pemesanan', [App\Http\Controllers\PesananController::class, 'storeOrder']);
+// Route::d('/pemesanan', [App\Http\Controllers\PesananController::class, 'storeOrder']);
 
 
 // Route untuk storefront
@@ -64,3 +66,8 @@ Route::get('/', [App\Http\Controllers\StorefrontController::class, 'index']);
 // Route untuk checkout
 Route::get('/form-pesanan/{produkId}',  [App\Http\Controllers\CheckoutController::class, 'formPesanan']);
 Route::post('/form-pesanan/{produkId}',  [App\Http\Controllers\CheckoutController::class, 'submitPesanan']);
+Route::get('/form-pesanan/{produkId}/done',  [App\Http\Controllers\CheckoutController::class, 'rincianPesanan']);
+
+// Route untuk profil
+Route::get('/profil',  [App\Http\Controllers\ProfileController::class, 'showProfile'])->name('profil');
+Route::get('/riwayat', [App\Http\Controllers\ProfileController::class, 'riwayat'])->name('riwayat');

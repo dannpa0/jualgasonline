@@ -15,7 +15,7 @@ class PesananController extends Controller
     {
 
         return view('pesanan', [
-            'listPesanan' => Pesanan::all()->sortBy('createdDate')
+            'listPesanan' => Pesanan::all()->sortBy('created_at')
 
         ]);
         // return view('pesanan');
@@ -71,6 +71,19 @@ class PesananController extends Controller
                 'jumlah_produk' => '2',
                 'total_harga' => '44000'
                 ]
+        ]);
+    }
+
+    public function updateStatus($id, $status)
+    {
+        \DB::transaction(function() use($id, $status) {
+            $pesanan = Pesanan::findOrFail($id);
+            $pesanan->status = $status;
+            $pesanan->save();
+        });
+        
+        return view('pesanan', [
+            'listPesanan' => Pesanan::all()->sortBy('created_at')
         ]);
     }
 }

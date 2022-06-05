@@ -112,6 +112,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
+  @include('layouts.confirmation-modal')
   <div class="content-wrapper">
     <!-- Toast -->
     @if( @isset($toastmsg))
@@ -125,8 +126,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
     @endif
     @yield('content-admin')
+    
     <!-- /.content -->
   </div>
+  
   <!-- /.content-wrapper -->
 
   <!-- Control Sidebar -->

@@ -15,6 +15,7 @@ class AddColumnStatusInPesananTable extends Migration
     {
         //ON_PROCESS
         //ON_DELIVERY
+        //CANCELLED
         //DONE
         Schema::table('pesanan', function (Blueprint $table) {
             //

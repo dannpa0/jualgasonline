@@ -34,7 +34,9 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <img src="{{ asset('img/mitramadina/mmlogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle " style="opacity: .8; max-width: 30px; margin-right: 8px" >
+                    <!-- {{ config('app.name', 'Laravel') }} -->
+                    Toko Mitra Madina
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -68,6 +70,12 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('profil') }}">
+                                        Profil
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('riwayat') }}">
+                                        Riwayat
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -88,6 +96,19 @@
         <main class="py-4">
             @yield('content')
         </main>
+        <footer class="main-footer m-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                    <strong><img src="{{ asset('img/whatsapp-symbol.svg') }}" style="max-width: 16px" /> Hubungi kami <a href="https://wa.me/6281219460268" target="_blank">081219460268</a></strong>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="float-right d-none d-sm-inline">
+            Anything you want
+            </div> -->
+            
+        </footer>
     </div>
 
     <!-- jQuery -->

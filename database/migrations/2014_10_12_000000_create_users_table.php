@@ -13,6 +13,9 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+        // ROLE
+        // PENGGUNA
+        // ADMIN
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');

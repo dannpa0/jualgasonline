@@ -131,7 +131,7 @@
                                                                 <div class="col-sm-6 " >Harga</div>
                                                                 <div class="col-sm-6 text-right" id="rincianHargaProduk">{{ $produk->harga }}</div>
                                                                 <div class="col-sm-6 " >Ongkos Kirim</div>
-                                                                <div class="col-sm-6 text-right" id="rincianHargaProduk"></div>
+                                                                <div class="col-sm-6 text-right" id="rincianHargaCod">0</div>
                                                                 <div class="col-sm-6 " ><b>Total</b></div>
                                                                 <div class="col-sm-6 text-right" id="rincianTotalProduk">0</div>
                                                                 
@@ -154,15 +154,15 @@
 
                                                         <div class="mt-2">
                                                         <div class="form-check form-check-inline" style="line-height: 14px;">
-                                                            <input class="form-check-input" type="radio" name="cod_yes" id="cod_yes" value="1">
-                                                            <label class="form-check-label" for="cod_yes">
+                                                            <input class="form-check-input" type="radio" name="is_cod" id="cod_no" value="0" checked> 
+                                                            <label class="form-check-label" for="cod_no">
                                                                 Ambil di tempat
                                                             </label>
                                                         </div>
                                                         <div class="form-check form-check-inline" style="line-height: 14px;">
-                                                            <input class="form-check-input" type="radio" name="cod_no" id="cod_no" value="0" checked>
-                                                            <label class="form-check-label" for="cod_no">
-                                                                Dikirim
+                                                            <input class="form-check-input" type="radio" name="is_cod" id="cod_yes" value="1" >
+                                                            <label class="form-check-label" for="cod_yes">
+                                                                COD
                                                             </label>
                                                         </div>
                                                         </div>
@@ -183,7 +183,7 @@
                                     <input id="inputTotalProduk" name="total_harga" type="hidden" value="0">
                                     <input id="idProduk" name="id_produk" type="hidden" value="{{ $produk['id'] }}">
                                     <div class="row mt-5">
-                                        <div class="col-sm-12 d-flex"><button class="btn btn-primary flex-grow-1 text-center">Pesan</button></div>
+                                        <div class="col-sm-12 d-flex"><button class="btn btn-primary flex-grow-1 text-center">Beli</button></div>
                                     </div>
                                 </div>
                             </form>

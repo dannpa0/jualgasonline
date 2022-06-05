@@ -13,8 +13,8 @@
     @endif
     <div class="card-body">
         <h5 class="card-title">{{ $produk->nama }}</h5>
-        <p class="card-text"><b>@ x @currency($produk->harga)</b></p>
-        <!-- <p class="card-text" style="color: #c4c4c4">{{ $produk->deskripsi }}</p> -->
+        <p class="card-text"><b>@currency($produk->harga) / pcs</b></p>
+        <p class="card-text" style="color: #c4c4c4">{{ $produk->deskripsi }}</p>
         <a href="/form-pesanan/{{$produk->id}}" class="btn btn-primary">Beli</a>
     </div>
 </div>

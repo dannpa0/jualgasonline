@@ -17,6 +17,19 @@ class ProdukController extends Controller
         // return view('produk');
     }
 
+    public function deleteProduk($idProduk)
+    {
+        // dd($idProduk);
+        DB::transaction(function() use($idProduk){
+            Produk::destroy($idProduk);
+        });
+        
+        $message = "Produk berhasil dihapus";
+        return view('produk', [
+            'listProduk' => Produk::all()->sortBy('created_at')
+        ])->with('toastmsg', $message);
+    }
+
     // id int
     // no_produk int
     // nama varchar

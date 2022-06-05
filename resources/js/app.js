@@ -47,17 +47,43 @@ function calculateTotal(){
     var namaProduk = $('#rincianNamaProduk').text();
     var harga = parseFloat($('#rincianHargaProduk').text());
     var qty = parseInt($('#qtyField').val());
+    var cod = $('#cod_yes').is(':checked') ? 3000: 0;
 
-    var total = harga * qty;
+    var total = harga * qty + cod;
     $('#rincianNamaProduk').text(namaProduk)
     $('#rincianJumlahProduk').text(qty)
     $('#rincianHargaProduk').text(harga)
     $('#rincianTotalProduk').text(total)
+    $('#rincianHargaCod').text(cod)
     $('#inputTotalProduk').val(total)
-    console.log(harga)
+    
+    
+    // console.log(harga)
 }
 
 $(document).on("change", "#selectProduk", function() {
     calculateTotal();
-    
 })
+
+$(document).on("click", "#cod_yes", function() {
+    calculateTotal();
+});
+
+$(document).on("click", "#cod_no", function() {
+    calculateTotal();
+});
+
+$('#confirmationModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var msg = button.data('msg') // Extract info from data-* attributes
+    var link = button.data('link')
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this)
+    // modal.find('.modal-title').text('New message to ' + recipient)
+    modal.find('.modal-body .text-msg-body').text(msg)
+    modal.find('#submitConfirmationModal').on("click", function() {
+        // console.log('deletelink',deleteLink)
+        window.location.href=link;
+    })
+  })
