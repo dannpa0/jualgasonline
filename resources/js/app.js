@@ -41,8 +41,11 @@ $(document).on("click", "#qtyDec", function() {
 })
 
 function calculateTotal(){
-    var namaProduk = $('#selectProduk').find(":selected").data('nama');
-    var harga = parseFloat($('#selectProduk').find(":selected").data('harga'));
+    // var namaProduk = $('#selectProduk').find(":selected").data('nama');
+    // var harga = parseFloat($('#selectProduk').find(":selected").data('harga'));
+
+    var namaProduk = $('#rincianNamaProduk').text();
+    var harga = parseFloat($('#rincianHargaProduk').text());
     var qty = parseInt($('#qtyField').val());
 
     var total = harga * qty;

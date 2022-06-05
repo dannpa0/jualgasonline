@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+// Route::get('')
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/admin-lte', function() {
@@ -58,3 +60,7 @@ Route::post('/pemesanan', [App\Http\Controllers\PesananController::class, 'store
 
 // Route untuk storefront
 Route::get('/', [App\Http\Controllers\StorefrontController::class, 'index']);
+
+// Route untuk checkout
+Route::get('/form-pesanan/{produkId}',  [App\Http\Controllers\CheckoutController::class, 'formPesanan']);
+Route::post('/form-pesanan/{produkId}',  [App\Http\Controllers\CheckoutController::class, 'submitPesanan']);
