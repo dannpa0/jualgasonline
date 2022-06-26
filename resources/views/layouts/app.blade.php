@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Toko Mitra Madina | Menjual gas dan galon secara Online</title>
 
     
 
@@ -22,6 +22,9 @@
     <!-- Theme style -->
     <!-- <link rel="stylesheet" href="css/adminlte.min.css"> -->
     <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
+
+    <!-- image src -->
+    <link rel="shortcut icon" href="{{ asset('img/mitramadina/mmlogo.png') }}" />
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
