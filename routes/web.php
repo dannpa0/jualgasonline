@@ -46,8 +46,8 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/manajemen/produk/{id}/edit', [App\Http\Controllers\ProdukController::class, 'show']);
     Route::post('/manajemen/produk/{id}/edit', [App\Http\Controllers\ProdukController::class, 'storeEdit']);
     Route::get('/manajemen/produk/baru', [App\Http\Controllers\ProdukController::class, 'create']);
+    Route::post('/manajemen/produk/baru', [App\Http\Controllers\ProdukController::class, 'store']);
     Route::get('/manajemen/produk/{idProduk}/hapus', [App\Http\Controllers\ProdukController::class, 'deleteProduk']);
-
 
     // Route untuk pesanan
     Route::get('/manajemen/pesanan', [App\Http\Controllers\PesananController::class, 'index']);
