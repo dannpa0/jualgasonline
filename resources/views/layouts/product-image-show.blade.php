@@ -13,6 +13,6 @@
     @endif
     <div class="card-body">
         <h5 class="card-title">{{ $produk->nama }}</h5>
-        <p class="card-text"><b>@ x @currency($produk->harga)</b></p>
+        <p class="card-text"><b>@currency($produk->harga) / pcs</b></p>
     </div>
 </div>

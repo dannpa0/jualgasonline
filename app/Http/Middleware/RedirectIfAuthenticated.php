@@ -19,12 +19,19 @@ class RedirectIfAuthenticated
      */
     public function handle(Request $request, Closure $next, ...$guards)
     {
+        // dd($guards);
         $guards = empty($guards) ? [null] : $guards;
-
+        // dd($guards);
         foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
+            // dd(Auth::guard($guard)->check());
+            // dd(Auth::guard($guard)->check() && Auth::user() &&  Auth::user()->role !== 'ADMIN');
+            if (Auth::guard($guard)->check() && Auth::user() &&  Auth::user()->role !== 'ADMIN') {
                 return redirect(RouteServiceProvider::HOME);
             }
+            // if(Auth::user() &&  Auth::user()->role === 'ADMIN'){
+            //     dd('here');
+            //     return redirect('admin.pengguna');
+            // }                
         }
 
         return $next($request);

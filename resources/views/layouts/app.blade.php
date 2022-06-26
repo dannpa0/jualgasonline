@@ -70,6 +70,11 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    @if (Auth::user()->role === 'ADMIN')
+                                    <a class="dropdown-item" href="{{ url('manajemen/pengguna') }}">
+                                        Dashboard Admin
+                                    </a>
+                                    @else
                                     <a class="dropdown-item" href="{{ route('profil') }}">
                                         Profil
                                     </a>
@@ -85,6 +90,7 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
+                                    @endif
                                 </div>
                             </li>
                         @endguest

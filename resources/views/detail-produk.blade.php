@@ -96,13 +96,7 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="ml-2 col-sm-6">
-                                            @php
-                                                if($produk['path_gambar'] !== NULL && isset($produk['path_gambar']))
-                                                {
-                                                    $link = asset("storage/uploads/")."/".explode('/', $produk['path_gambar'])[2];
-                                                }
-                                                
-                                            @endphp
+                                            {{ $produk['path_gambar'] }}
                                             @if( $produk['path_gambar'] != NULL ) 
                                                 <img src="{{ $link }}" id="preview" class="img-thumbnail">
                                             @else

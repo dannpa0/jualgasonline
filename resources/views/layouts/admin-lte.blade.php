@@ -48,13 +48,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{ url('manajemen/pengguna') }}" class="brand-link">
       <img src="{{ asset('img/mitramadina/mmlogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle " style="opacity: .8">
       <span class="brand-text font-weight-light">Mitra Madina Admin</span>
     </a>
-    <div class="position-absolute fixed-bottom p-3">
-      <button class="btn btn-danger w-100">Keluar</button>
-    </div>
+    <form action="{{ route('logout') }}" method="POST" >
+        @csrf
+        <div class="position-absolute fixed-bottom p-3">
+        
+          <button class="btn btn-danger w-100" type="submit">Keluar</button>
+        
+        
+        </div>
+    </form>
 
     <!-- Sidebar -->
     <div class="sidebar">

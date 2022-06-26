@@ -129,7 +129,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                      <button class="btn btn-secondary">Delete</button>
+                                                      <!-- <button class="btn btn-secondary">Delete</button> -->
                                                     </td>
                                                     <!-- <td>A</td> -->
                                                 </tr>
