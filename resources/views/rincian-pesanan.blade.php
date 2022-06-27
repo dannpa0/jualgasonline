@@ -62,7 +62,7 @@
                             </div>
                             <div class="col-12 mt-5">
                                 <div class="container d-flex">
-                                    <button type="button" class="btn btn-primary w-100" onclick="window.location.href='/form-pesanan/{{$rincianProduk->id}}/done'">Pesan Sekarang</button>
+                                    <button type="button" class="btn btn-primary w-100" onclick="window.location.href='{{ url('/form-pesanan/').'/'.$rincianProduk->id.'/done' }}'">Pesan Sekarang</button>
                                 </div>
                                 
                             </div>

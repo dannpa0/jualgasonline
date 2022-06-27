@@ -75,7 +75,7 @@
                                                     <td>{{ $pelanggan->no_hp }}</td>
                                                     <td>{{ $pelanggan->created_at}}</td>
                                                     <td>
-                                                    <button class="btn btn-primary"  onclick="window.location.href='/manajemen/pelanggan/{{ $pelanggan->id }}'">Edit</button>
+                                                    <button class="btn btn-primary"  onclick="window.location.href='{{ url('/manajemen/pelanggan/').'/'.$pelanggan->id }}'">Edit</button>
                                                       <!-- <button class="btn btn-secondary">Delete</button> -->
                                                     </td>
                                                     <!-- <td>A</td> -->

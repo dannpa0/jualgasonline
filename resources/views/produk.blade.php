@@ -94,7 +94,7 @@
                                                     <td>{{ $produk->harga}}</td>
                                                     <td>{{ $produk->kuantitas}}</td>
                                                     <td>
-                                                      <button class="btn btn-primary" onclick="window.location.href='/manajemen/produk/{{ $produk->id}}/edit'" >Edit</button>
+                                                      <button class="btn btn-primary" onclick="window.location.href='{{ url('/manajemen/produk/').'/'.$produk->id.'/edit' }}'" >Edit</button>
                                                       <button class="btn btn-secondary" 
                                                         data-toggle="modal"
                                                         data-target="#confirmationModal" 
