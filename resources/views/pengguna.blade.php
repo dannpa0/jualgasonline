@@ -85,7 +85,7 @@
                                                     <td>{{ $user->name }}</td>
                                                     <td>{{ $user->created_at }}</td>
                                                     <td>
-                                                      <button class="btn btn-primary" onclick="window.location.href='/manajemen/pengguna/{{ $user->id }}'" >Edit</button>
+                                                      <button class="btn btn-primary" onclick="window.location.href='{{url('/manajemen/pengguna/').'/'.$user->id}}'" >Edit</button>
                                                       <!-- <button class="btn btn-secondary">Delete</button> -->
                                                     </td>
                                                     <!-- <td>A</td> -->
