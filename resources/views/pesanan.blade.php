@@ -31,9 +31,6 @@
                             <div class="d-flex align-items-center flex-grow-1">
                                 <h3 class="card-title">Tabel Pesanan</h3>
                             </div>
-                            <div class="">
-                                <button type="button" class="btn btn-primary px-3"><i class="fa fa-plus" aria-hidden="true"></i></button>
-                            </div>
                         </div>
 
                         <div class="card-body">
@@ -99,27 +96,27 @@
                                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                                 <button class="dropdown-item @if($pesanan->status == 'ON_PROCESS') active @endif" 
                                                                     data-msg="Update status pesanan {{ $pesanan->id}} menjadi ON_PROCESS, lanjutkan ?"
-                                                                    data-link="/manajemen/pesanan/{{$pesanan->id}}/ON_PROCESS"
+                                                                    data-link="{{url('/manajemen/pesanan/').'/'.$pesanan->id.'/ON_PROCESS'}}"
                                                                     data-toggle="modal"
                                                                     data-target="#confirmationModal">
                                                                     ON_PROCESS
                                                                 </button>
                                                                 <button class="dropdown-item @if($pesanan->status == 'ON_DELIVERY') active @endif" 
                                                                     data-msg="Update status pesanan {{ $pesanan->id}} menjadi ON_DELIVERY, lanjutkan ?"
-                                                                    data-link="/manajemen/pesanan/{{$pesanan->id}}/ON_DELIVERY"
+                                                                    data-link="{{url('/manajemen/pesanan/').'/'.$pesanan->id.'/ON_DELIVERY'}}"
                                                                     data-toggle="modal"
                                                                     data-target="#confirmationModal">
                                                                     ON_DELIVERY
                                                                 </button>
                                                                 <button class="dropdown-item @if($pesanan->status == 'CANCELLED') active @endif" 
                                                                     data-msg="Update status pesanan {{ $pesanan->id}} menjadi CANCELLED, lanjutkan ?"
-                                                                    data-link="/manajemen/pesanan/{{$pesanan->id}}/CANCELLED"
+                                                                    data-link="{{url('/manajemen/pesanan/').'/'.$pesanan->id.'/CANCELLED'}}"
                                                                     data-toggle="modal"
                                                                     data-target="#confirmationModal">
                                                                     CANCELLED
                                                                 </button>
                                                                 <button class="dropdown-item @if($pesanan->status == 'DONE') active @endif" 
-                                                                    data-link="/manajemen/pesanan/{{$pesanan->id}}/DONE"
+                                                                    data-link="{{url('/manajemen/pesanan/').'/'.$pesanan->id.'/DONE'}}"
                                                                     data-toggle="modal"
                                                                     data-msg="Update status pesanan {{ $pesanan->id}} menjadi DONE, lanjutkan ?"
                                                                     data-target="#confirmationModal">

@@ -99,7 +99,7 @@
                                                         data-toggle="modal"
                                                         data-target="#confirmationModal" 
                                                         data-msg="Produk {{ $produk->nama }} akan di hapus, lanjutkan ?"
-                                                        data-link="/manajemen/produk/{{ $produk->id}}/hapus">Delete</button>
+                                                        data-link="{{ url('/manajemen/produk/').'/'.$produk->id.'/hapus' }}">Delete</button>
                                                     </td>
                                                 </tr>
                                                 @endforeach
