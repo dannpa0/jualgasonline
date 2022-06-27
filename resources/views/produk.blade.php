@@ -32,7 +32,7 @@
                                 <h3 class="card-title">Tabel Produk</h3>
                             </div>
                             <div class="">
-                                <button type="button" class="btn btn-primary px-3" onclick="window.location.href='/manajemen/produk/baru'"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                <button type="button" class="btn btn-primary px-3" onclick="window.location.href='{{ url('/manajemen/produk/baru') }}'"><i class="fa fa-plus" aria-hidden="true"></i></button>
                             </div>
                         </div>
 
