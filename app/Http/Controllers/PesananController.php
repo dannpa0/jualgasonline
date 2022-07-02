@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pesanan;
 use App\Models\Produk;
+use PDF;
+use Carbon\Carbon;
 
 class PesananController extends Controller
 {
@@ -63,17 +65,16 @@ class PesananController extends Controller
      */
     public function show($id)
     {
+
+        $rincianPesanan = Pesanan::find($id);
         return view('detail-pesanan', [
-            'pesanan' => [
-                'id_pesanan' => '1',
-                'id_produk' => '1',
-                'id_pelanggan' => '1',
-                'jumlah_produk' => '2',
-                'total_harga' => '44000'
-                ]
+            'rincianPesanan' => $rincianPesanan
         ]);
     }
 
+    /**
+     * Update status pesanan 
+     */
     public function updateStatus($id, $status)
     {
         \DB::transaction(function() use($id, $status) {
@@ -85,5 +86,46 @@ class PesananController extends Controller
         return view('pesanan', [
             'listPesanan' => Pesanan::all()->sortBy('created_at')
         ]);
+    }
+
+    /**
+     * Downlad Report PDF
+     */
+    public function downloadReportPesananPDF(Request $request) {
+        // dd($request->startDate);
+        $start = date($request->startDate);
+        $end = date($request->endDate);
+        $show = Pesanan::whereBetween('created_at', [$start, $end])->get();
+
+        
+        
+        $totalAllSell = 0;
+        foreach($show as $pesanan) {
+            $totalAllSell = $totalAllSell + $pesanan->total_harga;
+        }
+
+        $pdf = PDF::loadView('pesanan-pdf', compact('show', 'totalAllSell', 'start', 'end'));
+        
+        
+        $current_timestamp = Carbon::now()->timestamp;
+        return $pdf->download('testing'.$current_timestamp.'.pdf');
+    }
+
+    /**
+     * view pdf
+     */
+    public function viewReportPesananPDF(Request $request) {
+        $start = date($request->startDate);
+        $end = date($request->endDate);
+        $show = Pesanan::whereBetween('created_at', [$start, $end])->get();
+        $totalAllSell = 0;
+        foreach($show as $pesanan) {
+            $totalAllSell = $totalAllSell + $pesanan->total_harga;
+        }
+        // $pdf = PDF::loadView('pesanan-pdf', compact('show'));
+        
+        
+        $current_timestamp = Carbon::now()->timestamp;
+        return view('pesanan-pdf', compact('show', 'totalAllSell', 'start', 'end'));
     }
 }

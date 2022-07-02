@@ -53,6 +53,8 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/manajemen/pesanan', [App\Http\Controllers\PesananController::class, 'index']);
     Route::get('/manajemen/pesanan/{id}', [App\Http\Controllers\PesananController::class, 'show']);
     Route::get('/manajemen/pesanan/{id}/{status}', [App\Http\Controllers\PesananController::class, 'updateStatus']);
+    Route::get('/manajemen/report/pesanan/downloadReport', [App\Http\Controllers\PesananController::class, 'downloadReportPesananPDF']);
+    Route::get('/manajemen/report/pesanan/view', [App\Http\Controllers\PesananController::class, 'viewReportPesananPDF']);
     // Route::get('/manajemen/detail-pesanan', [App\Http\Controllers\DetailPesananController::class, 'index']);
     // Route::get('/manajemen/detail-pelanggan', [App\Http\Controllers\DetailPelangganController::class, 'index']);
 });

@@ -31,6 +31,24 @@
                             <div class="d-flex align-items-center flex-grow-1">
                                 <h3 class="card-title">Tabel Pesanan</h3>
                             </div>
+                            <form class="d-flex" id="report" action="/manajemen/report/pesanan/downloadReport" method="GET">
+                                <input name="startDate" type="hidden"/>
+                                <input name="endDate" type="hidden"/>
+                                <div class="form-group mr-2">
+                                    
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="far fa-calendar-alt"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control float-right" id="daterangereport">
+                                    </div>
+                                    
+                                </div>
+                                <div ><button id="downloadSubmit" class="btn btn-success" type="submit" disabled>Print Report</a></div>
+                            </form>
+                            
                         </div>
 
                         <div class="card-body">
@@ -126,7 +144,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                      <!-- <button class="btn btn-secondary">Delete</button> -->
+                                                      <a href="{{ url('/manajemen/pesanan/'.$pesanan->id)}}" class="btn btn-primary">View Detail</button>
                                                     </td>
                                                     <!-- <td>A</td> -->
                                                 </tr>
