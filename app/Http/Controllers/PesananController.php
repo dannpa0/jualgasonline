@@ -108,7 +108,7 @@ class PesananController extends Controller
         
         
         $current_timestamp = Carbon::now()->timestamp;
-        return $pdf->download('testing'.$current_timestamp.'.pdf');
+        return $pdf->download('laporan-penjualan-'.$current_timestamp.'.pdf');
     }
 
     /**
