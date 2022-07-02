@@ -72,34 +72,33 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        DB::transaction(function() use ($data) {
-            $userId = User::create([
-                'name' => $data['username'],
-                'email' => $data['email'],
-                'role' => 'PELANGGAN',
-                'password' => Hash::make($data['password']),
-            ])->id;
-    
-            $alamatId = Alamat::create([
-                'kecamatan' => $data['kecamatan'],
-                'kelurahan' => $data['kelurahan'],
-                'rt' => $data['rt'],
-                'rw' => $data['rw'],
-                'kota' => 'Bogor',
-                'alamat_lengkap' => $data['full_address']
-            ])->id;
-    
-            Pelanggan::create([
-                'nama' => $data['full_name'],
-                'no_hp' => $data['phone_number'],
-                'user_id' => $userId,
-                'id_alamat' => $alamatId,
-                
-            ]);
-        });
+        $user = null;
+        
+        $user = User::create([
+            'name' => $data['username'],
+            'email' => $data['email'],
+            'role' => 'PELANGGAN',
+            'password' => Hash::make($data['password']),
+        ]);
 
-        // dd()
-        // dd('asdlkfj');
+        $alamat = Alamat::create([
+            'kecamatan' => $data['kecamatan'],
+            'kelurahan' => $data['kelurahan'],
+            'rt' => $data['rt'],
+            'rw' => $data['rw'],
+            'kota' => 'Bogor',
+            'alamat_lengkap' => $data['full_address']
+        ]);
+
+        Pelanggan::create([
+            'nama' => $data['full_name'],
+            'no_hp' => $data['phone_number'],
+            'user_id' => $user->id,
+            'id_alamat' => $alamat->id
+            
+        ]);
+        return $user;
+
         
     }
 }

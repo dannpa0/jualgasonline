@@ -21,71 +21,81 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
+    
     <div class="content">
         <div class="container-fluid">
-            <div class="row">
+            <!-- <div class="container w-75"> -->
+                <div class="row justify-content-left">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header">Rincian Pemesanan</div>
+                            <div class="card-body">
+                                <!-- {{ $rincianPesanan}} -->
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="container">
+                                                <div class="row"><h5><i><b>Rincian Pelanggan</b></i></h5></div>
+                                                <div class="row">
+                                                    @include('layouts.rincian-field', ['title'=>'Nama', 'value'=>$rincianPesanan->pelanggan->nama])
+                                                </div>
+                                                <div class="row">
+                                                    @include('layouts.rincian-field', ['title'=>'Nomer Handphone', 'value'=>$rincianPesanan->pelanggan->no_hp])
+                                                </div>
+                                                <div class="row  mt-4"><h5><i><b>Rincian Alamat</b></i></h5></div>
+                                                <div class="row ">
+                                                    @include('layouts.rincian-field', ['title'=>'Kota', 'value'=>'Bogor'])
+                                                </div>
+                                                <div class="row">
+                                                    @include('layouts.rincian-field', ['title'=>'Kecamatan', 'value'=>$rincianPesanan->pelanggan->alamat->kecamatan])
+                                                </div>
+                                                <div class="row">
+                                                    @include('layouts.rincian-field', ['title'=>'Kelurahan', 'value'=>$rincianPesanan->pelanggan->alamat->kelurahan])
+                                                </div>
+                                                <div class="row">
+                                                    @include('layouts.rincian-field', ['title'=>'RT', 'value'=>$rincianPesanan->pelanggan->alamat->rt])
+                                                </div>
+                                                <div class="row">
+                                                    @include('layouts.rincian-field', ['title'=>'RW', 'value'=>$rincianPesanan->pelanggan->alamat->rw])
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12">Alamat Lengkap</div>
+                                                    <div class="col-12" style="color: #c4c4c4" >{{ $rincianPesanan->pelanggan->alamat->alamat_lengkap}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="container">
+                                                <div class="row"><h5><i><b>Rincian Pesanan</b></i></h5></div>
+                                                <div class="row">
+                                                    @include('layouts.rincian-field', ['title'=>'Nama Produk', 'value'=>$rincianPesanan->produk->nama])
+                                                </div>
+                                                <div class="row">
+                                                    @include('layouts.rincian-field', ['title'=>'Harga Satuan', 'value'=>$rincianPesanan->produk->harga, 'idr'=>TRUE])
+                                                </div>
+                                                <div class="row">
+                                                    @include('layouts.rincian-field', ['title'=>'Jumlah Pembelian', 'value'=>$rincianPesanan->jumlah_produk])
+                                                </div>
+                                                <div class="row">
+                                                    @include('layouts.rincian-field', ['title'=>'Ongkos kirim', 'value'=>$rincianPesanan->is_cod?3000:0, 'idr'=>TRUE])
+                                                </div>
+                                                <div class="row">
+                                                    @include('layouts.rincian-field', ['title'=>'Total Harga', 'value'=>$rincianPesanan->total_harga, 'idr'=>TRUE])
+                                                </div>
+                                                <div class="row">
+                                                    @include('layouts.rincian-field', ['title'=>'STATUS', 'value'=>$rincianPesanan->status])
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Detail Pesanan #{{$pesanan['id_pesanan']}}</h3>
-                        </div>
-
-                        <div class="card-body">
-                            <div id="example2_wrapper" class="dataTables_wrapper">
-                                <div class="row">
-                                    <!-- <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Id pesanan</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
-                                            
-                                        </div>
-                                    </div> -->
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Nama Produk</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Nama Pelanggan</label>
-                                             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Alamat Lengkap</label>
-                                             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Jumlah Barang</label>
-                                             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Total Harga</label>
-                                             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12"><button class="btn btn-primary">Simpan</button></div>
-                                </div>
-                                
-                                <!-- table footer --> 
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-5">
                                     
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
-            </div>
+            <!-- </div> -->
             <!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>

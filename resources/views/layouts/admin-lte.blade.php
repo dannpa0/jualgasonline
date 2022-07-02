@@ -19,6 +19,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
+
+  
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -171,6 +175,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- AdminLTE App -->
 <!-- <script src="js/adminlte.min.js"></script> -->
 <script src="{{ asset('js/adminlte.min.js') }}"></script>
+<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script> -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+<script src="{{ asset('js/custom.js') }}"></script>
+
 <!-- <script>
     $(document).on("click", ".browse", function() {
       console.log('asdflaksdjf')
