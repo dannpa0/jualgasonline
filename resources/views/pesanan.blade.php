@@ -31,7 +31,7 @@
                             <div class="d-flex align-items-center flex-grow-1">
                                 <h3 class="card-title">Tabel Pesanan</h3>
                             </div>
-                            <form class="d-flex" id="report" action="/manajemen/report/pesanan/downloadReport" method="GET">
+                            <form class="d-flex" id="report" action="{{ url('/manajemen/report/pesanan/downloadReport') }}" method="GET">
                                 <input name="startDate" type="hidden"/>
                                 <input name="endDate" type="hidden"/>
                                 <div class="form-group mr-2">
